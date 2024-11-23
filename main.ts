@@ -19,7 +19,7 @@ namespace microPixel {
             lengte = 15
             positie = parseFloat(tekst.substr(16, 2))
         }
-        for (let index = 0; index > lengte; ++index) {
+        for (let index = 0; index < lengte; ++index) {
             
             /* Controlleert of het een even of een oneven rij is en zet de juiste positie in positiepixel*/
             if (Math.trunc(index / 16) % 2 == 0) {
