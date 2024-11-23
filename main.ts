@@ -6,7 +6,7 @@ namespace microPixel {
      * 
      *  
      */
-    const kleuren = [0x000000, "Volvo", "BMW"];
+    const kleuren = [0x000000, 0xFFFFFF, 0xFFFFFF];
 
 
 
@@ -32,9 +32,9 @@ namespace microPixel {
                 positiepixel = 16 * positie + index
             }
             if (tekst.substr(index, 1) == ".") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Black))
+                strip.setPixelColor(positiepixel, kleuren[0])
             } else if (tekst.substr(index, 1) == "1") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.White))
+                strip.setPixelColor(positiepixel, kleuren[1])
             } else if (tekst.substr(index, 1) == "2") {
                 strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Red))
             } else if (tekst.substr(index, 1) == "3") {
