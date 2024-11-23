@@ -644,6 +644,8 @@ namespace microPixel {
     //% block 
     //% x.min=1 x.max=16
     //% y.min=1 y.max=16
+    //% x.defl=1
+    //% y.defl=1
     export function pixel(x: number, y :number) {
         let positie
 
@@ -659,6 +661,7 @@ namespace microPixel {
     }
     //% block
     //% x.min=0 x.max=100
+    //% x.defl=60
     export function helderheid(x: number) {
         strip.setBrightness(x)
     }
