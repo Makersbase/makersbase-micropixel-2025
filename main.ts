@@ -609,6 +609,8 @@ namespace microPixel {
     let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
     let plaatje = {};
 
+
+
     /* Maakt de functie die het plaatje erin zet */
     //% block 
     export function maakSprite(tekst: string) {
@@ -631,6 +633,15 @@ namespace microPixel {
     }
 
     //% block 
+    export function pixelKleur(x: number, y: number) {
+        let positie
+
+        strip.setPixelColor((y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1), kleuren[1])
+        strip.show()
+    }
+
+
+    //% block 
     export function pixel(x: number, y :number) {
         let positie
 
@@ -638,9 +649,28 @@ namespace microPixel {
         strip.show()
     }
 
+
+
     //% block 
     export function wis() {
         strip.clear()
+    }
+
+
+    /**
+     * To create a dropdown for number values, use numberdropdown instead
+     * of textdropdown for the fieldEditor.
+     */
+    //% shim=TD_ID
+    //% blockId=numberPicker
+    //% block="$value"
+    //% blockHidden=true
+    //% value.fieldEditor="numberdropdown"
+    //% value.fieldOptions.decompileLiterals=true
+    //% value.fieldOptions.values='1,2,23.5,5'
+    //% value.defl='5'
+    export function __numberPicker(value: number): number {
+        return value;
     }
 
 
