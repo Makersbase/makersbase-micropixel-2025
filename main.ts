@@ -691,7 +691,7 @@ namespace microPixel {
         }
 
         // Combineer de segmenten terug tot één string
-        return segments.join('');
+        maakSprite(segments.join(''));
     }    
 
 
