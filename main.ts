@@ -10,20 +10,13 @@ namespace microPixel {
         let index = 0
         let positiepixel
         let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
+        let row = Math.trunc(index / 16);
 
-        for (let index = 0; index < lengte; ++index) {
-            /* Controlleert of het een even of een oneven rij is en zet de juiste positie in positiepixel*/
-            if (Math.trunc(index / 16) % 2 == 0) {
-               /*
-                positiepixel = 15 - (index - Math.trunc(index / 16) * 16) + (Math.trunc(index / 16) * 16) 
-                */
-                positiepixel = 15 - (index % 16) + Math.trunc(index / 16) * 16
-            } else {
-                positiepixel =  index
-            }
-            /* Zet op de juiste plek de juiste kleur */
-            strip.setPixelColor(positiepixel, kleuren[parseInt(tekst.substr(index, 1))])
-         }
+        if (row % 2 == 0) {
+            positiepixel = 15 - (index % 16) + row * 16;
+        } else {
+            positiepixel = index;
+        }
 
         strip.show()
     }
