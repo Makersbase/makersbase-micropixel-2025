@@ -1,22 +1,17 @@
 //% color="#FFA500" weight=110
 namespace microPixel {
-    /**
-     * Maakt de Sprite aan
-     * 
-     * 
-     *  
-     */
+
+    /* Zet alle kleuren in de juiste volgorde in een lijst */
     const kleuren = [0x000000, 0xFFFFFF, 0xFF0000, 0xFF00FF, 0xFFA500, 0xFFFF00, 0x8a2be2, 0x00FF00, 0x0000FF, 0x4b0082];
-
-
 
     //% block
     export function maakSprite(tekst: string): void {
-        let lengte 
+        let lengte = 255 
         let positie = 0
         let index = 0
         let positiepixel
         let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
+        
         if (20 < tekst.length) {
             lengte = 255
             positie = 0
@@ -24,47 +19,20 @@ namespace microPixel {
             lengte = 15
             positie = parseFloat(tekst.substr(16, 2))
         }
-        while (index <= lengte) {
+        for (let index = 0; index < lengte; ++index) {
+            
             /* Controlleert of het een even of een oneven rij is en zet de juiste positie in positiepixel*/
             if (Math.trunc(index / 16) % 2 == 0) {
                 positiepixel = 16 - (index - Math.trunc(index / 16) * 16) + (16 + Math.trunc(index / 16) * 16 - 16) - 1
             } else {
                 positiepixel = 16 * positie + index
             }
+            /* Zet op de juiste plek de juiste kleur */
             strip.setPixelColor(positiepixel, kleuren[parseInt(tekst.substr(index, 1))])
-/*
-            if (tekst.substr(index, 1) == "1") {
-                strip.setPixelColor(positiepixel, kleuren[1])
-            } else if (tekst.substr(index, 1) == "2") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Red))
-            } else if (tekst.substr(index, 1) == "3") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Purple))
-            } else if (tekst.substr(index, 1) == "4") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Orange))
-            } else if (tekst.substr(index, 1) == "5") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Yellow))
-            } else if (tekst.substr(index, 1) == "6") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Violet))
-            } else if (tekst.substr(index, 1) == "7") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Green))
-            } else if (tekst.substr(index, 1) == "8") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Blue))
-            } else if (tekst.substr(index, 1) == "9") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Indigo))
-            } else if (tekst.substr(index, 1) == "0") {
-                strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Black))
-            } else {
-                strip.setPixelColor(16 * positiepixel + index, neopixel.colors(NeoPixelColors.Black))
-            }
-*/
+            /* index += 1*/
+        }
 
-            index += 1
-        }
-        if (256 == tekst.length) {
-            strip.show()
-        } else if (15 == parseFloat(tekst.substr(16, 2))) {
-            strip.show()
-        }
+        strip.show()
     }
 
 }
