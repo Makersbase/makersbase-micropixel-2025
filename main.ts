@@ -630,7 +630,18 @@ namespace microPixel {
             : positie;
     }
 
+    //% block 
+    export function pixel(x: number, y :number) {
+        let positie
 
+        if (y % 2 === 0) {
+            positie = (y - 1) * 16 + (x - 1);
+        } else {
+            positie = (y - 1) * 16 + (16 - (x / 16 + (x - 1) + 0));
+        }
+        strip.setPixelColor(positie, kleuren[1])
+        strip.show()
+    }
 
 
 
