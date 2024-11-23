@@ -676,18 +676,22 @@ namespace microPixel {
     }
 
 
-
+    
     //% block
     //% snelheid.min=0 snelheid.max=2000
     //% x.defl=100
-    export function scrollDown(tekst: string, snelheid: number) {
-        for (let index = 0; index < 16; index++) {
-            basic.pause(snelheid)
-            maakSprite(
-                tekst.substr(0, index * 16 + 16) +
-                tekst.substr(index * 16 + 16, 240 - index * 16)
-            );
+    export function scrollLeft(input: string, snelheid: number) {
+        let segments = [];
+        let segmentSize = 16;
+        
+        for (let i = 0; i < 16; i++) {
+            let segment = input.substr(i * segmentSize, segmentSize);
+            let lastChar = segment.charAt(segment.length - 1); // Haal het laatste teken van het segment
+            segments.push(lastChar + segment); // Voeg het laatste teken vooraan toe
         }
-    }
+
+        // Combineer de segmenten terug tot één string
+        return segments.join('');
+    }    
 
 }
