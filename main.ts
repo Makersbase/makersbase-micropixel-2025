@@ -10,17 +10,37 @@ namespace microPixel {
         let index = 0
         let positiepixel
         let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
+        
+        /* Gaat alle pixels 1 voor 1 af */
         for (let index = 0; index < lengte; ++index) {
-            let row = Math.trunc(index / 16);
+            
+            /*let row = Math.trunc(index / 16);
             if (row % 2 == 0) {
                 positiepixel = 15 - (index % 16) + row * 16;
             } else {
                 positiepixel = index;
-            }
+            }*/
+            positiepixel = pixelConvert(index)
+
+
+            /* Zet de juiste kleur op de juiste plek*/
             strip.setPixelColor(positiepixel, kleuren[parseInt(tekst.substr(index, 1))])
         }
+        /* Laat alles zien */
         strip.show()
     }
+
+    function pixelConvert(positie: number) {
+        let row = Math.trunc(positie / 16);
+        if (row % 2 == 0) {
+            return 15 - (positie % 16) + row * 16;
+        } else {
+            return positie;
+        }
+    }
+
+
+
 
 }
 
