@@ -660,7 +660,7 @@ namespace microPixel {
         strip.clear()
     }
     //% block
-    //% x.min=0 x.max=100
+    //% x.min=0 x.max=255
     //% x.defl=60
     export function helderheid(x: number) {
         strip.setBrightness(x)
