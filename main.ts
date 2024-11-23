@@ -607,32 +607,32 @@ namespace microPixel {
     /* Zet alle kleuren in de juiste volgorde in een lijst */
     const kleuren = [0x000000, 0xFFFFFF, 0xFF0000, 0xFF00FF, 0xFFA500, 0xFFFF00, 0x8a2be2, 0x00FF00, 0x0000FF, 0x4b0082];
     let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
+    let plaatje = {};
 
+    /* Maakt de functie die het plaatje erin zet */
     //% block 
-    export function maakSprite(tekst: string): void {
-        let lengte = 256
-        let index = 0
-        let positiepixel
- 
+    export function maakSprite(tekst: string) {
         /* Gaat alle pixels 1 voor 1 af */
-        for (let index = 0; index < lengte; ++index) {
-            /* Zet pixel om */
-            positiepixel = pixelConvert(index)
-
-            /* Zet de juiste kleur op de juiste plek*/
-            strip.setPixelColor(positiepixel, kleuren[parseInt(tekst.substr(index, 1))])
+        for (let index = 0; index < 256; ++index) {
+             /* Zet de juiste kleur op de juiste plek*/
+            strip.setPixelColor(pixelConvert(index), kleuren[parseInt(tekst.substr(index, 1))])
         }
+ 
         /* Laat alles zien */
         strip.show()
+        
     }
 
-    /* Zet de pixel van de string om naar de pixel op de neopixel grid*/
+    /* Zet de pixel van de string om naar de pixel op de neopixel grid */
     function pixelConvert(positie: number) {
-        let row = Math.trunc(positie / 16);
-        if (row % 2 == 0) {
-            return 15 - (positie % 16) + row * 16;
-        } else {
-            return positie;
-        }
+        return Math.trunc(positie / 16) % 2 === 0
+            ? 15 - (positie % 16) + Math.trunc(positie / 16) * 16
+            : positie;
     }
+
+
+
+
+
+
 }
