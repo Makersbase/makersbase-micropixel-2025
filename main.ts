@@ -634,7 +634,7 @@ namespace microPixel {
     export function pixel(x: number, y :number) {
         let positie
 
-        strip.setPixelColor((y - 1) * 16 + (y % 2 === 1 ? x - 1 : 16 - x), kleuren[1])
+        strip.setPixelColor((y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1), kleuren[1])
         strip.show()
     }
 
