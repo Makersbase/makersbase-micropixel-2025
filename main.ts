@@ -638,6 +638,11 @@ namespace microPixel {
         strip.show()
     }
 
+    //% block 
+    export function wis() {
+        strip.clear()
+    }
+
 
 
 
