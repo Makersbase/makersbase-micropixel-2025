@@ -655,25 +655,11 @@ namespace microPixel {
     export function wis() {
         strip.clear()
     }
-
-
-    /**
-     * To create a dropdown for number values, use numberdropdown instead
-     * of textdropdown for the fieldEditor.
-     */
-    //% shim=TD_ID
-    //% blockId=numberPicker
-    //% block="$value"
-    //% blockHidden=true
-    //% value.fieldEditor="numberdropdown"
-    //% value.fieldOptions.decompileLiterals=true
-    //% value.fieldOptions.values='1,2,23.5,5'
-    //% value.defl='5'
-    export function __numberPicker(value: number): number {
-        return value;
+    //% block
+    //% x.min=0 x.max=100
+    export function helderheid(x: number) {
+        strip.setBrightness(x)
     }
-
-
 
 
 }
