@@ -8,11 +8,11 @@ namespace microPixel {
      */
     //% block
     export function maakSprite(tekst: string): void {
-        var lengte 
-        var positie = 0
-        var index = 0
-        var positiepixel
-        
+        let lengte 
+        let positie = 0
+        let index = 0
+        let positiepixel
+        let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
         if (20 < tekst.length) {
             lengte = 255
             positie = 0
