@@ -1,3 +1,4 @@
+//% color="#AA278D" weight=100
 namespace microPixel {
     /**
      * Maakt de Sprite aan
@@ -5,6 +6,7 @@ namespace microPixel {
      * 
      *  
      */
+    //% block
     export function maakSprite(x: string): void {
         basic.showString(x)
     }
