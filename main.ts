@@ -663,5 +663,14 @@ namespace microPixel {
         strip.setBrightness(x)
     }
 
+    //% block
+    export function scrollUp(tekst: string) {
+        for (let index = 0; index < 16; index++) {
+            maakSprite(
+                tekst.substr(index * 16 + 16, 240 - index * 16) +
+                tekst.substr(0, index * 16 + 16)
+            );
+        }
+    }
 
 }
