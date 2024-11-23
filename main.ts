@@ -670,8 +670,22 @@ namespace microPixel {
         for (let index = 0; index < 16; index++) {
             basic.pause(snelheid)
             maakSprite(
-                tekst.substr(index * 16 + 16, 240 - index * 16) +
-                tekst.substr(0, index * 16 + 16)
+                tekst.substr(index * 16 + 16, 240 - index * 16) + tekst.substr(0, index * 16 + 16)
+            );
+        }
+    }
+
+
+
+    //% block
+    //% snelheid.min=0 snelheid.max=2000
+    //% x.defl=100
+    export function scrollDown(tekst: string, snelheid: number) {
+        for (let index = 0; index < 16; index++) {
+            basic.pause(snelheid)
+            maakSprite(
+                tekst.substr(0, index * 16 + 16) +
+                tekst.substr(index * 16 + 16, 240 - index * 16)
             );
         }
     }
