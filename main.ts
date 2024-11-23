@@ -609,7 +609,10 @@ namespace microPixel {
     let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
     let plaatje = {};
 
-
+    //% block 
+    export function wis() {
+        strip.clear()
+    }
 
     /* Maakt de functie die het plaatje erin zet */
     //% block 
@@ -653,12 +656,6 @@ namespace microPixel {
         strip.show()
     }
 
-
-
-    //% block 
-    export function wis() {
-        strip.clear()
-    }
     //% block
     //% x.min=0 x.max=255
     //% x.defl=60
