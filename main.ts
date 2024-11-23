@@ -1,4 +1,4 @@
-//% color="#AA278D" weight=50
+//% color="#FFFF00" weight=150
 namespace microPixel {
     /**
      * Maakt de Sprite aan
