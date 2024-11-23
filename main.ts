@@ -10,14 +10,15 @@ namespace microPixel {
         let index = 0
         let positiepixel
         let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
-        let row = Math.trunc(index / 16);
+        for (let index = 0; index < lengte; ++index) {
+            let row = Math.trunc(index / 16);
 
-        if (row % 2 == 0) {
-            positiepixel = 15 - (index % 16) + row * 16;
-        } else {
-            positiepixel = index;
+            if (row % 2 == 0) {
+                positiepixel = 15 - (index % 16) + row * 16;
+            } else {
+                positiepixel = index;
+            }
         }
-
         strip.show()
     }
 
