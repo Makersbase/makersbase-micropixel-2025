@@ -106,6 +106,7 @@ enum NeoPixelMode {
  * Functions to operate NeoPixel strips.
  */
 //% weight=5 color=#2699BF icon="\uf110"
+//% blockHidden=true
 namespace neopixel {
     /**
      * A NeoPixel strip
