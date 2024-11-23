@@ -4,7 +4,7 @@ namespace microPixel {
     /* Zet alle kleuren in de juiste volgorde in een lijst */
     const kleuren = [0x000000, 0xFFFFFF, 0xFF0000, 0xFF00FF, 0xFFA500, 0xFFFF00, 0x8a2be2, 0x00FF00, 0x0000FF, 0x4b0082];
 
-    //% block
+    //% block 
     export function maakSprite(tekst: string): void {
         let lengte = 256 
         let positie = 0
