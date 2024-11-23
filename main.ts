@@ -665,7 +665,7 @@ namespace microPixel {
 
     //% block
     //% snelheid.min=0 snelheid.max=2000
-    //% x.defl=100
+    //% snelheid.defl=100
     export function scrollUp(tekst: string, snelheid :number) {
         for (let index = 0; index < 16; index++) {
             basic.pause(snelheid)
@@ -679,7 +679,7 @@ namespace microPixel {
     
     //% block
     //% snelheid.min=0 snelheid.max=2000
-    //% x.defl=100
+    //% snelheid.defl=100
     export function scrollLeft(input: string, snelheid: number) {
         let segments = [];
         let segmentSize = 16;
@@ -693,5 +693,6 @@ namespace microPixel {
         // Combineer de segmenten terug tot één string
         return segments.join('');
     }    
+
 
 }
