@@ -688,10 +688,12 @@ namespace microPixel {
             let segment = input.substr(i * segmentSize, segmentSize);
             let lastChar = segment.charAt(segment.length - 1); // Haal het laatste teken van het segment
             segments.push(lastChar + segment); // Voeg het laatste teken vooraan toe
+            maakSprite(segments.join(''));
+            basic.pause(100);
         }
 
         // Combineer de segmenten terug tot één string
-        maakSprite(segments.join(''));
+        
     }    
 
 
