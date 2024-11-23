@@ -642,6 +642,8 @@ namespace microPixel {
 
 
     //% block 
+    //% x.min=1 x.max=16
+    //% y.min=1 y.max=16
     export function pixel(x: number, y :number) {
         let positie
 
