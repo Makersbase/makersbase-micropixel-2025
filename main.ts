@@ -6,7 +6,7 @@ namespace microPixel {
      * 
      *  
      */
-    const kleuren = [0x000000, 0xFFFFFF, 0xFFFFFF];
+    const kleuren = [0x000000, 0xFFFFFF, 0xFF0000, 0xFF00FF, 0xFFA500, 0xFFFF00, 0x8a2be2, 0x00FF00, 0x0000FF, 0x4b0082];
 
 
 
@@ -31,9 +31,9 @@ namespace microPixel {
             } else {
                 positiepixel = 16 * positie + index
             }
-            if (tekst.substr(index, 1) == ".") {
-                strip.setPixelColor(positiepixel, kleuren[0])
-            } else if (tekst.substr(index, 1) == "1") {
+            strip.setPixelColor(positiepixel, kleuren[parseInt(tekst.substr(index, 1))])
+/*
+            if (tekst.substr(index, 1) == "1") {
                 strip.setPixelColor(positiepixel, kleuren[1])
             } else if (tekst.substr(index, 1) == "2") {
                 strip.setPixelColor(positiepixel, neopixel.colors(NeoPixelColors.Red))
@@ -56,6 +56,8 @@ namespace microPixel {
             } else {
                 strip.setPixelColor(16 * positiepixel + index, neopixel.colors(NeoPixelColors.Black))
             }
+*/
+
             index += 1
         }
         if (256 == tekst.length) {
