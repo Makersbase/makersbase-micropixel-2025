@@ -6,20 +6,20 @@ namespace microPixel {
 
     //% block
     export function maakSprite(tekst: string): void {
-        let lengte = 255 
+        let lengte = 256 
         let positie = 0
         let index = 0
         let positiepixel
         let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
         
         if (20 < tekst.length) {
-            lengte = 255
+            lengte = 256
             positie = 0
         } else {
             lengte = 15
             positie = parseFloat(tekst.substr(16, 2))
         }
-        for (let index = 0; index == lengte; ++index) {
+        for (let index = 0; index > lengte; ++index) {
             
             /* Controlleert of het een even of een oneven rij is en zet de juiste positie in positiepixel*/
             if (Math.trunc(index / 16) % 2 == 0) {
