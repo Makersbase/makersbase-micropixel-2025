@@ -14,7 +14,10 @@ namespace microPixel {
         for (let index = 0; index < lengte; ++index) {
             /* Controlleert of het een even of een oneven rij is en zet de juiste positie in positiepixel*/
             if (Math.trunc(index / 16) % 2 == 0) {
+               /*
                 positiepixel = 15 - (index - Math.trunc(index / 16) * 16) + (Math.trunc(index / 16) * 16) 
+                */
+                positiepixel = 15 - (index % 16) + Math.trunc(index / 16) * 16
             } else {
                 positiepixel =  index
             }
