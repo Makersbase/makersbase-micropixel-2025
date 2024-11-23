@@ -6,6 +6,10 @@ namespace microPixel {
      * 
      *  
      */
+    const kleuren = [0x000000, "Volvo", "BMW"];
+
+
+
     //% block
     export function maakSprite(tekst: string): void {
         let lengte 
@@ -21,6 +25,7 @@ namespace microPixel {
             positie = parseFloat(tekst.substr(16, 2))
         }
         while (index <= lengte) {
+            /* Controlleert of het een even of een oneven rij is en zet de juiste positie in positiepixel*/
             if (Math.trunc(index / 16) % 2 == 0) {
                 positiepixel = 16 - (index - Math.trunc(index / 16) * 16) + (16 + Math.trunc(index / 16) * 16 - 16) - 1
             } else {
@@ -106,7 +111,7 @@ enum NeoPixelMode {
  * Functions to operate NeoPixel strips.
  */
 //% weight=5 color=#2699BF icon="\uf110"
-//% blockHidden=true
+
 namespace neopixel {
     /**
      * A NeoPixel strip
