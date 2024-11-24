@@ -608,6 +608,7 @@ namespace microPixel {
     const kleuren = [0x000000, 0xFFFFFF, 0xFF0000, 0xFF00FF, 0xFFA500, 0xFFFF00, 0x8a2be2, 0x00FF00, 0x0000FF, 0x4b0082];
     let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
     let plaatje = {};
+    let snelheid = 20;
     radio.setTransmitPower(7);
 
     //% block 
@@ -681,7 +682,7 @@ namespace microPixel {
     export function sendPicture (tekst: string, microbit :number) {
         for (let index = 0; index < 16; ++index) {
             radio.sendString(splitImage(tekst, index))
-            basic.pause(20)
+            basic.pause(snelheid)
         }
     }
 
@@ -690,6 +691,12 @@ namespace microPixel {
     export function maakKanaal(microbit: number) {
         radio.setGroup(microbit)
     }   
+
+    // Zet het juist kanaal aan    
+    //% block 
+    export function zetSnelheidKanaal(hoesnel: number) {
+        snelheid = hoesnel
+    }
 
     /* maakt een deeltje van het hele plaatje */
     function splitImage(tekst: string, deel :number ) {
