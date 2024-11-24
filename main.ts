@@ -609,7 +609,7 @@ namespace microPixel {
     let strip       = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
     let plaatje     = {};
     let snelheid    = 20;
-    let radiokanaal = 0;
+    let radiokanaal = 11;
     let schermenx   = 1;
     let schermeny   = 1;
     radio.setTransmitPower(7);
@@ -648,12 +648,19 @@ namespace microPixel {
     //% kanaal.min=0 kanaal.max=99
     //% kanaal.defl=0
     //% block 
-    export function pixelKleur(x: number, y: number, kleur: number, kanaal: number) {
-        let positie
-        strip.setPixelColor((y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1), kleuren[1])
-        strip.show()
+    export function pixelKleur(x: number, y: number, kleur: number) {
+        
+        radio.setGroup(krijgScherm(x, y))
+        radio.sendString(convertToText(x + 1000) + convertToText(y + 1000))
+        radio.setGroup(radiokanaal)
+
     }
     
+    function krijgScherm(x: number, y: number) {
+        return (Math.trunc(x /265) + 1) * 10 +  Math.trunc(y / 265) + 1
+
+    }
+
 
     function krijgPixelNummer(x: number, y: number) {
         return (y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1);
@@ -708,7 +715,7 @@ namespace microPixel {
         radio.setGroup(microbit)
     }   
 
-    // Zet het juist kanaal aan    
+    // Maakt het grid voor de schermen   
     //% block 
     //% x.min=1 x.max=9
     //% x.defl=1
