@@ -606,10 +606,12 @@ namespace microPixel {
 
     /* Zet alle kleuren in de juiste volgorde in een lijst */
     const kleuren = [0x000000, 0xFFFFFF, 0xFF0000, 0xFF00FF, 0xFFA500, 0xFFFF00, 0x8a2be2, 0x00FF00, 0x0000FF, 0x4b0082];
-    let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
-    let plaatje = {};
-    let snelheid = 20;
+    let strip       = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
+    let plaatje     = {};
+    let snelheid    = 20;
     let radiokanaal = 0;
+    let schermenx   = 1;
+    let schermeny   = 1;
     radio.setTransmitPower(7);
 
     //% block 
@@ -699,10 +701,23 @@ namespace microPixel {
 
     // Zet het juist kanaal aan    
     //% block 
+    //% microbit.min=0 microbit.max=99
+    //% microbit.defl=0
     export function maakKanaal(microbit: number) {
         radiokanaal = microbit;
         radio.setGroup(microbit)
     }   
+
+    // Zet het juist kanaal aan    
+    //% block 
+    //% x.min=1 x.max=9
+    //% x.defl=1
+    //% y.min=1 y.max=9
+    //% y.defl=1
+    export function maakGrid(x: number, y: number) {
+        schermenx = x
+        schermeny = y
+    }
 
     // Verander de snelheid voor het versturen   
     //% block 
