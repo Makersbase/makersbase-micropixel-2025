@@ -683,10 +683,17 @@ namespace microPixel {
         //    tekst.substr(index * 16 ,16,tekst)            
         //}
 
+        radio.setGroup(microbit)
+
         maakLijn(splitImage(tekst,3))
 
     }
-    
+
+    // Zet het juist kanaal aan    
+    //% block 
+    export function maakKanaal(microbit: number) {
+        radio.setGroup(microbit)
+    }   
 
     /* maakt een deeltje van het hele plaatje */
     function splitImage(tekst: string, deel :number ) {
@@ -705,6 +712,18 @@ namespace microPixel {
         /* Laat alles zien */
         strip.show()
     }
+
+    /* Ontvang de lijn en print deze op het scherm */
+    radio.onReceivedString(function(receivedString: string) {
+        maakLijn(receivedString)
+    }
+
+
+
+)
+
+
+
 
 
 }
