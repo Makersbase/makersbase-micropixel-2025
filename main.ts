@@ -676,7 +676,7 @@ namespace microPixel {
         }
     }
 
-    
+    // Verstuurd het plaatje
     //% block 
     export function sendPicture (tekst: string, microbit :number) {
         for (let index = 0; index < 16; ++index) {
@@ -700,7 +700,6 @@ namespace microPixel {
     function maakLijn(tekst: string) {
         
         let rij = parseInt(tekst.substr(16,2)) * 16
-        basic.showNumber(rij)
         for (let index = 0 ; index < 16; ++index) {
             /* Zet de juiste kleur op de juiste plek*/
             strip.setPixelColor(pixelConvert(index+rij), kleuren[parseInt(tekst.substr(index, 1))])
