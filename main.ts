@@ -679,14 +679,10 @@ namespace microPixel {
     
     //% block 
     export function sendPicture (tekst: string, microbit :number) {
-       // for (let index = 0; index < 16; index++) {
-        //    tekst.substr(index * 16 ,16,tekst)            
-        //}
-
-        radio.setGroup(microbit)
-
-        maakLijn(splitImage(tekst,3))
-
+        for (let index = 0; index < 16; ++index) {
+            radio.sendString(splitImage(tekst, index))
+            basic.pause(100)
+        }
     }
 
     // Zet het juist kanaal aan    
