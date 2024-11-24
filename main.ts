@@ -608,6 +608,7 @@ namespace microPixel {
     const kleuren = [0x000000, 0xFFFFFF, 0xFF0000, 0xFF00FF, 0xFFA500, 0xFFFF00, 0x8a2be2, 0x00FF00, 0x0000FF, 0x4b0082];
     let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
     let plaatje = {};
+    radio.setTransmitPower(7);
 
     //% block 
     export function wis() {
@@ -675,8 +676,25 @@ namespace microPixel {
         }
     }
 
-
     
+    //% block 
+    export function sendPicture (tekst: string, microbit :number) {
+       // for (let index = 0; index < 16; index++) {
+        //    tekst.substr(index * 16 ,16,tekst)            
+        //}
+
+        basic.showString(splitImage(tekst,0))
+
+    }
+    
+
+    /* maakt een deeltje van het hele plaatje */
+    function splitImage(tekst: string, deel :number ) {
+        return tekst.substr((deel*16),16) + convertToText(deel);
+    }
+
+
+
 
 
 }
