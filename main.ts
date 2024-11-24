@@ -651,16 +651,17 @@ namespace microPixel {
     export function pixelKleur(x: number, y: number, kleur: number) {
         
         radio.setGroup(krijgScherm(x, y))
+        basic.showNumber(krijgScherm(x, y))
         radio.sendString(convertToText(x + 1000) + convertToText(y + 1000))
+        basic.showString(convertToText(x + 1000) + convertToText(y + 1000))
         radio.setGroup(radiokanaal)
+
 
     }
     
     //Bekijkt wel scherm er nodig is voor de pixel
     function krijgScherm(x: number, y: number) {
-        
-        basic.showNumber((Math.trunc(x / 16) + 1 * 10) + (Math.trunc(y / 16) + 1));
-        return ( (Math.trunc(x /16) + 1 * 10) +  (Math.trunc(y / 16) + 1) )
+        return ( (Math.trunc((x+1) /16) + 1 * 10) +  (Math.trunc((y+1) / 16) + 1) )
 
     }
 
