@@ -649,12 +649,8 @@ namespace microPixel {
     //% kanaal.defl=0
     //% block 
     export function pixelRadio(x: number, y: number, kleur: number) {
-        let nummering
         radio.setGroup(krijgScherm(x, y))
-        nummering = ((((x-1) % 16))  * 16) + ((y-1) % 16) 
-        radio.sendNumber(nummering)       
-        
-        basic.showNumber(nummering)
+        radio.sendNumber(((((x - 1) % 16)) * 16) + ((y - 1) % 16))
         radio.setGroup(radiokanaal)
    }
     
@@ -762,7 +758,11 @@ namespace microPixel {
         }
     )
 
-
+    /* ontvangt een pixxel */
+    radio.onReceivedNumber(function(receivedNumber: number) {
+        strip.setPixelColor(receivedNumber, kleuren[1])
+        strip.show()
+    })
 
 
 
