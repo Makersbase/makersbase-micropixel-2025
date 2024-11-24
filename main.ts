@@ -712,9 +712,9 @@ namespace microPixel {
             strip.setPixelColor(pixelConvert(index+rij), kleuren[parseInt(tekst.substr(index, 1))])
         }
         /* Laat alles zien */
-        if(rij == 15) {
+        
             strip.show()
-        }
+        
     }
 
     /* Ontvang de lijn en print deze op het scherm */
