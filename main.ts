@@ -681,7 +681,7 @@ namespace microPixel {
     export function sendPicture (tekst: string, microbit :number) {
         for (let index = 0; index < 16; ++index) {
             radio.sendString(splitImage(tekst, index))
-            basic.pause(100)
+            basic.pause(20)
         }
     }
 
@@ -705,7 +705,9 @@ namespace microPixel {
             strip.setPixelColor(pixelConvert(index+rij), kleuren[parseInt(tekst.substr(index, 1))])
         }
         /* Laat alles zien */
-        strip.show()
+        if(rij == 15) {
+            strip.show()
+        }
     }
 
     /* Ontvang de lijn en print deze op het scherm */
