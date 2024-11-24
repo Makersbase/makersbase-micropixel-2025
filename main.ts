@@ -696,7 +696,7 @@ namespace microPixel {
         return tekst.substr((deel*16),16) + convertToText(deel);
     }
 
-    /* Draai de tekst om , is dat wel handig, misschien meteen */
+    /* print de lijn */
     function maakLijn(tekst: string) {
         
         let rij = parseInt(tekst.substr(16,2)) * 16
