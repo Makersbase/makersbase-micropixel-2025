@@ -698,9 +698,9 @@ namespace microPixel {
         
         let rij = parseInt(tekst.substr(16,2)) * 16
         basic.showNumber(rij)
-        for (let index = rij ; index < (rij + 16); ++index) {
+        for (let index = 0 ; index < 16; ++index) {
             /* Zet de juiste kleur op de juiste plek*/
-            strip.setPixelColor(pixelConvert(index), kleuren[parseInt(tekst.substr(index, 1))])
+            strip.setPixelColor(pixelConvert(index+rij), kleuren[parseInt(tekst.substr(index, 1))])
         }
         /* Laat alles zien */
         strip.show()
