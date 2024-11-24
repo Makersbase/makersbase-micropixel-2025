@@ -609,6 +609,7 @@ namespace microPixel {
     let strip = neopixel.create(DigitalPin.P0, 256, NeoPixelMode.RGB);
     let plaatje = {};
     let snelheid = 20;
+    let radiokanaal = 0;
     radio.setTransmitPower(7);
 
     //% block 
@@ -637,12 +638,23 @@ namespace microPixel {
             : positie;
     }
 
+    
+    // Verstuurd de data voor 1 pixel
+    // Nog niet af!!!
+    //% kleur.min=1 kleur.max=9
+    //% kleur.defl=1
+    //% kanaal.min=0 kanaal.max=99
+    //% kanaal.defl=0
     //% block 
-    export function pixelKleur(x: number, y: number) {
+    export function pixelKleur(x: number, y: number, kleur: number, kanaal: number) {
         let positie
-
         strip.setPixelColor((y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1), kleuren[1])
         strip.show()
+    }
+    
+
+    function krijgPixelNummer(x: number, y: number) {
+        return (y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1);
     }
 
 
@@ -653,7 +665,6 @@ namespace microPixel {
     //% y.defl=1
     export function pixel(x: number, y :number) {
         let positie
-
         strip.setPixelColor((y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1), kleuren[1])
         strip.show()
     }
@@ -689,11 +700,14 @@ namespace microPixel {
     // Zet het juist kanaal aan    
     //% block 
     export function maakKanaal(microbit: number) {
+        radiokanaal = microbit;
         radio.setGroup(microbit)
     }   
 
-    // Zet het juist kanaal aan    
+    // Verander de snelheid voor het versturen   
     //% block 
+    //% hoesnel.min=5 hoesnel.max=100
+    //% hoesnel.defl=10
     export function zetSnelheidKanaal(hoesnel: number) {
         snelheid = hoesnel
     }
@@ -719,12 +733,9 @@ namespace microPixel {
 
     /* Ontvang de lijn en print deze op het scherm */
     radio.onReceivedString(function(receivedString: string) {
-        maakLijn(receivedString)
-    }
-
-
-
-)
+            maakLijn(receivedString)
+        }
+    )
 
 
 
