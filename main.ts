@@ -659,7 +659,7 @@ namespace microPixel {
     //Bekijkt wel scherm er nodig is voor de pixel
     function krijgScherm(x: number, y: number) {
         
-        basic.showNumber((Math.trunc(x / 265) + 1 * 10) + (Math.trunc(y / 265) + 1));
+        basic.showNumber((Math.trunc(x / 16) + 1 * 10) + (Math.trunc(y / 16) + 1));
         return ( (Math.trunc(x /16) + 1 * 10) +  (Math.trunc(y / 16) + 1) )
 
     }
