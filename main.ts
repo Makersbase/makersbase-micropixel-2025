@@ -755,7 +755,11 @@ namespace microPixel {
 
     /* Ontvang de lijn en print deze op het scherm */
     radio.onReceivedString(function(receivedString: string) {
+        if (receivedString.length == 8) {
+            pixel(parseInt(receivedString.substr(1,3)), parseInt(receivedString.substr(4,3)))
+        } else
             maakLijn(receivedString)
+        
         }
     )
 
