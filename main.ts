@@ -649,15 +649,14 @@ namespace microPixel {
     //% kanaal.defl=0
     //% block 
     export function pixelKleur(x: number, y: number, kleur: number) {
-        
+        let nummering
         radio.setGroup(krijgScherm(x, y))
-        basic.showNumber(krijgScherm(x, y))
-        radio.sendString(convertToText(x + 1000) + convertToText(y + 1000))
-        basic.showString(convertToText(x + 1000) + convertToText(y + 1000))
+        nummering = ((x - 1) * 16) + (y - 1)
+        radio.sendNumber(nummering)       
+        
+        basic.showNumber(nummering)
         radio.setGroup(radiokanaal)
-
-
-    }
+   }
     
     //Bekijkt wel scherm er nodig is voor de pixel
     function krijgScherm(x: number, y: number) {
@@ -759,11 +758,7 @@ namespace microPixel {
 
     /* Ontvang de lijn en print deze op het scherm */
     radio.onReceivedString(function(receivedString: string) {
-        if (receivedString.length == 8) {
-            pixel(parseInt(receivedString.substr(1,3)), parseInt(receivedString.substr(4,3)))
-        } else
-            maakLijn(receivedString)
-        
+        maakLijn(receivedString)       
         }
     )
 
