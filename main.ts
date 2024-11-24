@@ -656,8 +656,11 @@ namespace microPixel {
 
     }
     
+    //Bekijkt wel scherm er nodig is voor de pixel
     function krijgScherm(x: number, y: number) {
-        return (Math.trunc(x /265) + 1) * 10 +  Math.trunc(y / 265) + 1
+        
+        basic.showNumber((Math.trunc(x / 265) + 1 * 10) + (Math.trunc(y / 265) + 1));
+        return ( (Math.trunc(x /265) + 1 * 10) +  (Math.trunc(y / 265) + 1) )
 
     }
 
@@ -666,7 +669,7 @@ namespace microPixel {
         return (y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1);
     }
 
-
+    // Zet een pixel op het scherm
     //% block 
     //% x.min=1 x.max=16
     //% y.min=1 y.max=16
