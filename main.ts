@@ -648,10 +648,10 @@ namespace microPixel {
     //% kanaal.min=0 kanaal.max=99
     //% kanaal.defl=0
     //% block 
-    export function pixelKleur(x: number, y: number, kleur: number) {
+    export function pixelRadio(x: number, y: number, kleur: number) {
         let nummering
         radio.setGroup(krijgScherm(x, y))
-        nummering = ((x - 1) * 16) + (y - 1)
+        nummering = ((Math.trunc(x/16) - 1) * 16) + (y - 1)
         radio.sendNumber(nummering)       
         
         basic.showNumber(nummering)
