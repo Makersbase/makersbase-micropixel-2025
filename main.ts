@@ -651,7 +651,7 @@ namespace microPixel {
     export function pixelRadio(x: number, y: number, kleur: number) {
         let nummering
         radio.setGroup(krijgScherm(x, y))
-        nummering = (((x % 16) - 1) * 16) + ((y % 16) - 1)
+        nummering = (((x % 16) + 1) * 16) + ((y % 16) + 1)
         radio.sendNumber(nummering)       
         
         basic.showNumber(nummering)
