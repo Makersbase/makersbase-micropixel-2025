@@ -683,7 +683,7 @@ namespace microPixel {
         //    tekst.substr(index * 16 ,16,tekst)            
         //}
 
-        basic.showString(splitImage(tekst,0))
+        maakLijn(splitImage(tekst,3))
 
     }
     
@@ -693,8 +693,18 @@ namespace microPixel {
         return tekst.substr((deel*16),16) + convertToText(deel);
     }
 
+    /* Draai de tekst om , is dat wel handig, misschien meteen */
+    function maakLijn(tekst: string) {
+        
+        let rij = parseInt(tekst.substr(16,2)) * 16
 
-
+        for (let index = rij ; index < (rij + 16); ++index) {
+            /* Zet de juiste kleur op de juiste plek*/
+            strip.setPixelColor(pixelConvert(index), kleuren[parseInt(tekst.substr(index, 1))])
+        }
+        /* Laat alles zien */
+        strip.show()
+    }
 
 
 }
