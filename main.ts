@@ -664,7 +664,7 @@ namespace microPixel {
     // ==================================================
     // ==================================================
     function krijgScherm(x: number, y: number) {
-        return ( ((Math.trunc((x+1) /16)+1)  * 10) +  (Math.trunc(y / 16) + 1) )
+        return ( ((Math.trunc((x-1) /16)+1)  * 10) +  (Math.trunc(y / 16) + 1) )
 
     }
 
