@@ -670,7 +670,7 @@ namespace microPixel {
 
 
     function krijgPixelNummer(x: number, y: number) {
-        return (y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1);
+        return (x - 1) * 16 + (x % 2 === 1 ? 16 - y : y - 1);
     }
 
     // Zet een pixel op het scherm
