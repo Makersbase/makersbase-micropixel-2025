@@ -654,6 +654,7 @@ namespace microPixel {
         //radio.sendNumber(krijgPixelNummer((x - 1) % 16, (y - 1) % 16))
         radio.sendNumber(((((x - 1) % 16)) * 16) + ((y - 1) % 16))
         radio.setGroup(radiokanaal)
+        basic.pause(snelheid)
    }
     
     //Bekijkt wel scherm er nodig is voor de pixel
