@@ -657,7 +657,7 @@ namespace microPixel {
         radio.setGroup(radiokanaal)
         basic.pause(snelheid)
 
-        basic.showNumber((kleur * 1000) + ((((x - 1) % 16)) * 16) + ((y - 1) % 16))
+        basic.showNumber((kleur * 1000) + ((((x - 1) % 16)) * 16)+1 + ((y - 1) % 16)+1)
    }
     
     //Bekijkt wel scherm er nodig is voor de pixel
