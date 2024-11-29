@@ -612,6 +612,7 @@ namespace microPixel {
     let radiokanaal = 11;
     let schermenx   = 1;
     let schermeny   = 1;
+    let pixelkleur  = 1;
     radio.setTransmitPower(7);
 
     //% block 
@@ -651,10 +652,12 @@ namespace microPixel {
     export function pixelRadio(x: number, y: number, kleur: number) {
         radio.setGroup(krijgScherm(x, y))
         
-        //radio.sendNumber(krijgPixelNummer((x - 1) % 16, (y - 1) % 16))
-        radio.sendNumber(((((x - 1) % 16)) * 16) + ((y - 1) % 16))
+        //radio.sendNumber(krijgPixelNummer((x - 1) % 16, (y - 1) % 16))       
+        radio.sendNumber((kleur * 1000) +((((x - 1) % 16)) * 16) + ((y - 1) % 16))
         radio.setGroup(radiokanaal)
         basic.pause(snelheid)
+
+        basic.showNumber((kleur * 1000) + ((((x - 1) % 16)) * 16) + ((y - 1) % 16))
    }
     
     //Bekijkt wel scherm er nodig is voor de pixel
@@ -723,6 +726,14 @@ namespace microPixel {
         radio.setGroup(microbit)
     }   
 
+    // Zet de juiste kleur 
+    //% block 
+    //% microbit.min=0 microbit.max=9
+    //% microbit.defl=0
+    export function kleurPixel(kleur: number) {
+        pixelkleur = kleur;
+    }
+
     // Maakt het grid voor de schermen   
     //% block 
     //% x.min=1 x.max=9
@@ -747,6 +758,8 @@ namespace microPixel {
         return tekst.substr((deel*16),16) + convertToText(deel);
     }
 
+
+
     /* print de lijn */
     function maakLijn(tekst: string) {
         
@@ -769,9 +782,22 @@ namespace microPixel {
 
     /* ontvangt een pixxel */
     radio.onReceivedNumber(function(receivedNumber: number) {
-        strip.setPixelColor(pixelConvert(receivedNumber), kleuren[1])
+        strip.setPixelColor(pixelConvert(receivedNumber), kleuren[pixelkleur])
         strip.show()
     })
+
+    function extractKleur(getal: number) {
+
+
+    }
+
+    function extractPositie(getal: number) {
+
+
+    }
+
+
+
 
 
 
