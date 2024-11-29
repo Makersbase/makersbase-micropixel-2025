@@ -656,8 +656,6 @@ namespace microPixel {
         radio.sendNumber((kleur * 1000) +((((x - 1) % 16)) * 16) + ((y - 1) % 16))
         radio.setGroup(radiokanaal)
         basic.pause(snelheid)
-
-        basic.showNumber(extractKleur((kleur * 1000) + ((((x - 1) % 16)) * 16) + ((y - 1) % 16)))
    }
     
     function krijgScherm(x: number, y: number) {
@@ -775,7 +773,7 @@ namespace microPixel {
 
     /* ontvangt een pixxel */
     radio.onReceivedNumber(function(receivedNumber: number) {
-        strip.setPixelColor(pixelConvert(receivedNumber), kleuren[pixelkleur])
+        strip.setPixelColor(pixelConvert(extractPositie(receivedNumber)), extractKleur(receivedNumber))
         strip.show()
     })
 
@@ -785,7 +783,7 @@ namespace microPixel {
     }
 
     function extractPositie(getal: number) {
-
+        return getal-(extractKleur(getal)*1000)
 
     }
 
