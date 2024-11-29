@@ -773,7 +773,7 @@ namespace microPixel {
 
     /* ontvangt een pixxel */
     radio.onReceivedNumber(function(receivedNumber: number) {
-        strip.setPixelColor(pixelConvert(extractPositie(receivedNumber)), extractKleur(kleuren[receivedNumber]))
+        strip.setPixelColor(pixelConvert(extractPositie(receivedNumber)), kleuren[extractKleur(receivedNumber)])
         strip.show()
     })
 
