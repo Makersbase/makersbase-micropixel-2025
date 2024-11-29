@@ -657,16 +657,9 @@ namespace microPixel {
         radio.setGroup(radiokanaal)
         basic.pause(snelheid)
 
-        basic.showNumber((kleur * 1000) + ((((x - 1) % 16)) * 16) + ((y - 1) % 16))
+        basic.showNumber(extractKleur((kleur * 1000) + ((((x - 1) % 16)) * 16) + ((y - 1) % 16)))
    }
     
-    //Bekijkt wel scherm er nodig is voor de pixel
-    // Dit werkt nog niet goed 
-    // ==================================================
-    // ==================================================
-    // ==================================================
-    // ==================================================
-    // ==================================================
     function krijgScherm(x: number, y: number) {
         return ( ((Math.trunc((x-1) /16)+1)  * 10) +  (Math.trunc((y-1) / 16) + 1) )
 
@@ -787,7 +780,7 @@ namespace microPixel {
     })
 
     function extractKleur(getal: number) {
-
+        return Math.trunc(getal / 1000)
 
     }
 
