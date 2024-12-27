@@ -1,5 +1,6 @@
 {
     "name": "Makersbase Micropixel 2025 - Copy - Copy - Copy",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "core": "*",
