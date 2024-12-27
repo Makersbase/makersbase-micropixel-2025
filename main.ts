@@ -616,7 +616,7 @@ namespace microPixel {
     radio.setTransmitPower(7);
 
     //% block 
-    export function wis() {
+    export function clearSccreen() {
         strip.clear()
     }
 
@@ -706,7 +706,7 @@ namespace microPixel {
 
     // Verstuurd het plaatje
     //% block 
-    //% weight=180
+    //% weight=499
     export function sendPicture (tekst: string, microbit :number) {
         for (let index = 0; index < 16; ++index) {
             radio.sendString(splitImage(tekst, index))
@@ -719,7 +719,7 @@ namespace microPixel {
     //% microbit.min=0 microbit.max=99
     //% microbit.defl=0
     //% weight=300
-    export function maakKanaal(microbit: number) {
+    export function Channel(microbit: number) {
         radiokanaal = microbit;
         radio.setGroup(microbit)
     }   
