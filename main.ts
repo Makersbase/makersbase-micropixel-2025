@@ -622,6 +622,7 @@ namespace microPixel {
 
     /* Maakt de functie die het plaatje erin zet */
     //% block 
+    //% weight=900
     export function maakSprite(tekst: string) {
         /* Gaat alle pixels 1 voor 1 af */
         for (let index = 0; index < 256; ++index) {
@@ -693,6 +694,7 @@ namespace microPixel {
     //% block
     //% snelheid.min=0 snelheid.max=2000
     //% snelheid.defl=100
+    //% weight=700
     export function scrollUp(tekst: string, snelheid :number) {
         for (let index = 0; index < 16; index++) {
             basic.pause(snelheid)
@@ -727,7 +729,7 @@ namespace microPixel {
     //% microbit.min=0 microbit.max=9
     //% microbit.defl=0
     //% weight=250
-    export function kleurPixel(kleur: number) {
+    export function colorPixel(kleur: number) {
         pixelkleur = kleur;
     }
 
