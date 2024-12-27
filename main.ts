@@ -649,6 +649,7 @@ namespace microPixel {
     //% kanaal.min=0 kanaal.max=99
     //% kanaal.defl=0
     //% block 
+    //% weight=500
     export function pixelRadio(x: number, y: number, kleur: number) {
         radio.setGroup(krijgScherm(x, y))
         
@@ -674,6 +675,7 @@ namespace microPixel {
     //% y.min=1 y.max=16
     //% x.defl=1
     //% y.defl=1
+    //% weight=800
     export function pixel(x: number, y :number) {
         let positie
         strip.setPixelColor((y - 1) * 16 + (y % 2 === 1 ? 16 - x : x - 1), kleuren[1])
@@ -683,6 +685,7 @@ namespace microPixel {
     //% block
     //% x.min=0 x.max=255
     //% x.defl=60
+    //% weight=400
     export function helderheid(x: number) {
         strip.setBrightness(x)
     }
@@ -701,6 +704,7 @@ namespace microPixel {
 
     // Verstuurd het plaatje
     //% block 
+    //% weight=180
     export function sendPicture (tekst: string, microbit :number) {
         for (let index = 0; index < 16; ++index) {
             radio.sendString(splitImage(tekst, index))
@@ -712,6 +716,7 @@ namespace microPixel {
     //% block 
     //% microbit.min=0 microbit.max=99
     //% microbit.defl=0
+    //% weight=300
     export function maakKanaal(microbit: number) {
         radiokanaal = microbit;
         radio.setGroup(microbit)
@@ -721,26 +726,18 @@ namespace microPixel {
     //% block 
     //% microbit.min=0 microbit.max=9
     //% microbit.defl=0
+    //% weight=250
     export function kleurPixel(kleur: number) {
         pixelkleur = kleur;
     }
 
-    // Maakt het grid voor de schermen   
-    //% block 
-    //% x.min=1 x.max=9
-    //% x.defl=1
-    //% y.min=1 y.max=9
-    //% y.defl=1
-    export function maakGrid(x: number, y: number) {
-        schermenx = x
-        schermeny = y
-    }
 
     // Verander de snelheid voor het versturen   
     //% block 
     //% hoesnel.min=5 hoesnel.max=100
     //% hoesnel.defl=10
-    export function zetSnelheidKanaal(hoesnel: number) {
+    //% weight=200
+    export function RadioSpeed(hoesnel: number) {
         snelheid = hoesnel
     }
 
