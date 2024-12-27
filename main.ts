@@ -687,7 +687,7 @@ namespace microPixel {
     //% x.min=0 x.max=255
     //% x.defl=60
     //% weight=400
-    export function helderheid(x: number) {
+    export function brightness(x: number) {
         strip.setBrightness(x)
     }
 
